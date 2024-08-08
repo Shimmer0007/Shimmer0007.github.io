@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网站首页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            background-image: url('夕辉逐日工程.jpg');
+            background-size: cover;
+            background-position: top right; /* 调整背景图片位置 */
+            background-repeat: no-repeat;
+        }
+        .header {
+            padding: 20px;
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            font-size: 24px;
+        }
+        .main-content {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            font-size: 20px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+        .modules {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .module {
+            padding: 15px 30px;
+            background-color: #ddd;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+        .module:hover {
+            background-color: #ccc;
+        }
+        .module:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">我的个人网站</div>
+    <div class="main-content">好日子在后头，我们要向前看</div>
+    <div class="modules">
+        <a href="#" class="module">个人博客</a>
+        <a href="#" class="module">工作日志</a>
+        <a href="#" class="module">游戏集锦</a>
+        <a href="#" class="module">点亮技能树</a>
+    </div>
+</body>
+</html>

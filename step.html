@@ -4,22 +4,29 @@
 <meta charset="UTF-8">
 <title>点击计数器</title>
 <style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
   .circle-btn {
     border-radius: 50%; /* 使按钮变成圆形 */
-    width: 100px;
-    height: 100px;
+    width: 200px; /* 增大宽度 */
+    height: 200px; /* 增大高度 */
     background-color: #3498db;
     color: white;
     text-align: center;
-    line-height: 100px; /* 使文字垂直居中 */
+    line-height: 200px; /* 使文字垂直居中 */
     cursor: pointer;
     user-select: none; /* 防止文字被选中 */
-    display: inline-block;
-    margin: 20px;
+    margin-bottom: 20px; /* 添加底部外边距 */
   }
   #counter {
-    font-size: 24px;
-    margin-top: 10px;
+    font-size: 48px; /* 增大字体大小 */
+    text-align: center;
   }
 </style>
 </head>

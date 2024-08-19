@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到微光计划</title>
+    <!-- ... 其他头部元素，如样式表链接 ... -->
+</head>
+<body>
+    <header>
+		<li>心怀诗意以谋爱，手持烟火以谋生。</li>
+        <!-- ... 网站头部内容 ... -->
+    </header>
+
+    <div class="container">
+        <h1>索引</h1>
+        <nav>
+            <ul id="blog-index">
+				<script>
+					// 假设这是您的博客文章数据
+				var blogPosts = [
+					{ title: "从0到0.1——搭建自己个人主页的壳子", url: "blog1.html" },
+    				{ title: "我的第二篇博客会是什么？", url: "blog2.html" },
+					// ... 更多博客文章
+				];
+				// 获取博客索引的容器
+				var blogIndex = document.getElementById('blog-index');
+				// 创建列表项并添加到博客索引容器中
+				blogPosts.forEach(function(post) {
+    				var listItem = document.createElement('li');
+    				var link = document.createElement('a');
+    				link.href = post.url;
+    				link.textContent = post.title;
+    				listItem.appendChild(link);
+					blogIndex.appendChild(listItem);
+});
+				</script>
+                <!-- 博客文章列表-->
+            </ul>
+        </nav>
+        <!-- ... 可能的其他内容 ... -->
+    </div>
+
+    <footer>
+        <!-- ... 网站底部内容 ... -->
+    </footer>
+</body>
+</html>

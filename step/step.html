@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Shimmer的二月计划</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .circle-btn {
+            border-radius: 50%; /* 使按钮变成圆形 */
+            width: 200px; /* 调整宽度 */
+            height: 200px; /* 调整高度 */
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            line-height: 200px; /* 使文字垂直居中 */
+            cursor: pointer;
+            user-select: none; /* 防止文字被选中 */
+            margin-bottom: 20px; /* 添加底部外边距 */
+        }
+        #counter {
+            font-size: 100px; /* 调整字体大小 */
+            text-align: center;
+        }
+        body {
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0066cc 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .post {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .post h2 {
+            color: #333;
+        }
+        .post p {
+            color: #666;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #333;
+            text-align: center;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100% - 170px); /* Adjust height to make space for header and footer */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Shimmer</span>的第一步</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="circle-btn" onclick="incrementCounter()">踩一脚</div>
+        <div id="counter">0</div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Shimmer的二月计划</p>
+        </div>
+    </footer>
+
+    <script>
+        // 初始化计数器
+        var count = 0;
+
+        // 更新计数器的函数
+        function incrementCounter() {
+            count += 1; /* 增加计数 */
+            document.getElementById('counter').innerText = count; /* 显示新的计数 */
+        }
+    </script>
+</body>
+</html>

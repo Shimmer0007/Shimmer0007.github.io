@@ -3,115 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shimmer的二月计划</title>
+    <title>点亮技能树</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+		#ability-tree {
+    		font-family: 'Arial', sans-serif;
+    		color: #333;
+		}
 
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
+		#ability-tree ul {
+   			list-style: none;
+    		padding-left: 20px;
+		}
 
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #0066cc 3px solid;
-        }
+		#ability-tree li {
+    		margin: 5px 0;
+		}
 
-        header a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
+		.node {
+    		text-decoration: none;
+    		color: #0066cc;
+    		font-weight: bold;
+    		cursor: pointer;
+		}
 
-        header ul {
-            padding: 0;
-            list-style: none;
-        }
+		.leaf {
+    		color: #666;
+    		font-size: 0.9em;
+    		display: none; /* 默认不显示详细信息 */
+		}
+		/* 动画效果 */
+		.node:hover {
+    		color: #e8491d;
+		}
+		
+		.expand-enter-active, .expand-leave-active {
+    		transition: height 0.5s ease;
+		}
 
-        header li {
-            float: left;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
+		.expand-enter, .expand-leave-to {
+    		height: 0;
+    		overflow: hidden;
+		}
 
-        header #branding {
-            float: left;
-        }
-
-        header #branding h1 {
-            margin: 0;
-        }
-
-        header nav {
-            float: right;
-            margin-top: 10px;
-        }
-
-        header .highlight, header .current a {
-            color: #e8491d;
-            font-weight: bold;
-        }
-
-        header a:hover {
-            color: #ffffff;
-            font-weight: bold;
-        }
-
-        .post {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .post h2 {
-            color: #333;
-        }
-
-        .post p {
-            color: #666;
-        }
-
-        footer {
-            padding: 20px;
-            margin-top: 20px;
-            color: #fff;
-            background-color: #333;
-            text-align: center;
-        }
+        /* CSS样式 */
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Shimmer</span>的第一步</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="current"><a href="../index.html">首页</a></li>
-                    <li><a href="about.html">关于</a></li>
-                    <li><a href="contact.html">联系</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div id="ability-tree">	
+    <ul>
+        <li>
+            <a href="#" class="node">经济学</a>
+            <ul>
+                <li><a href="#" class="node">西方经济学</a>
+                    <ul>
+                        <li class="leaf">技能描述：微宏观经济学模型</li>
+                        <li class="leaf">工作经历：无</li>
+                        <li class="leaf">成就获奖：无</li>
+                    </ul>
+                </li>
+				<li><a href="#" class="node">国民经济规划学</a>
+                    <ul>
+                        <li class="leaf">技能描述：宏观经济指标分析</li>
+                        <li class="leaf">工作经历：参考消息研读</li>
+                        <li class="leaf">成就获奖：无</li>
+                    </ul>
+                </li>
+                <!-- 更多子节点 -->
+            </ul>
+        </li>
+		
+		<li>
+            <a href="#" class="node">管理学</a>
+            <ul>
+                <li><a href="#" class="node">组织行为学</a>
+                    <ul>
+                        <li class="leaf">技能描述：无</li>
+                        <li class="leaf">工作经历：海棠公寓正铺级宿舍长</li>
+                        <li class="leaf">成就获奖：钱永贵奖学金“优秀宿舍”</li>
+                    </ul>
+                </li>
+        <!-- 其他学科门类 -->
+        <li>
+            <a href="#" class="node">数据科学</a>
+            <!-- 子节点 -->
+        </li>
+				
+		<li>
+            <a href="#" class="node">计算神经学</a>
+            <!-- 子节点 -->
+        </li>
+				
+    </ul>
+	</div>
+        <!-- HTML结构 -->
 
-    <div class="container">
-        <div class="post">
-            <h2>Nobody here but us chickens!</h2>
-    <footer>
-        <p>&copy; 2024 Shimmer的二月计划</p>
-    </footer>
+    <script>
+		document.addEventListener('DOMContentLoaded', function() {
+    		var nodes = document.querySelectorAll('.node');
+
+    		nodes.forEach(function(node) {
+        		node.addEventListener('click', function(e) {
+            		e.preventDefault();
+            		var sublist = this.nextElementSibling;
+            		if (sublist) {
+                		sublist.style.display = sublist.style.display === 'block' ? 'none' : 'block';
+                		sublist.classList.toggle('expand-enter-active');
+            		}
+        		});
+    		});
+		});
+        // JavaScript交互
+    </script>
 </body>
 </html>

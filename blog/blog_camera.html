@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shimmer的影像集</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0066cc 3px solid;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .post {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post h2 {
+            color: #333;
+        }
+
+        .post p {
+            color: #666;
+        }
+		
+		.gallery {
+           display: flex;
+            flex-direction: column;
+            align-items: center; /* 居中对齐图片和文本 */
+            width: 22%; /* 与图片宽度相同，确保它们在同一列 */
+            margin-bottom: 20px;
+        }
+
+        .gallery img {
+            width: 22%; /* 4张图片，每张图片占22%，留出间隙 */
+            margin-bottom: 20px;
+        }
+
+        .gallery a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        .gallery p {
+            text-align: center;
+            margin: 0;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            color: #666;
+        }
+
+        .pagination a:hover {
+            background-color: #f4f4f4;
+        }
+
+        .active {
+            background-color: #333;
+            color: #fff;
+        }
+		
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #333;
+            text-align: center;
+        }
+		
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Shimmer</span>快门下的光影与远方</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="../index.html">首页</a></li>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="post">
+            <div class="gallery">
+                <!-- 图片和文本将在这里动态添加 -->
+            </div>
+            <div class="pagination">
+                <!-- 分页链接将在这里动态添加 -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Shimmer的二月计划</p>
+    </footer>
+	<script>
+    // 假设图片信息存储在这个数组中
+    var images = [
+        { src: 'camera/2017.7.28 渥太华市郊.jpg', alt: '图片1', description: '2017年7月28日于渥太华市郊' },
+        { src: 'camera/2017.7.30 多伦多电视台俯瞰尼亚加拉大瀑布.jpg', alt: '图片2', description: '2017年7月30日于多伦多电视台俯瞰尼亚加拉大瀑布' },
+		{ src: 'camera/2018.7.21 三沙市鸭公岛.jpg', alt: '图片3', description: '2018年7月21日于西沙群岛鸭公岛' },
+		{ src: 'camera/2021.7.14 色彩重铸的化学实验室.jpg', alt: '图片4', description: '2021年7月14日配彩虹溶液' },
+        // ... 其他图片信息
+        { src: 'camera/image12.jpg', alt: '图片12', description: '图片12的描述' }
+    ];
+
+    var perPage = 12; // 每页显示的图片数量
+    var currentPage = 1; // 当前页码
+
+    function displayImages(page) {
+        var startIndex = (page - 1) * perPage;
+        var endIndex = startIndex + perPage;
+        var gallery = document.querySelector('.gallery');
+        gallery.innerHTML = ''; // 清空当前图片
+
+        for (var i = startIndex; i < endIndex && i < images.length; i++) {
+            var imgInfo = images[i];
+            var imgElement = document.createElement('img');
+            imgElement.src = imgInfo.src;
+            imgElement.alt = imgInfo.alt;
+
+            var linkElement = document.createElement('a');
+            linkElement.href = 'detail.html?image=' + imgInfo.src; // 假设详情页为detail.html
+            linkElement.appendChild(imgElement);
+
+            var pElement = document.createElement('p');
+            pElement.textContent = imgInfo.description;
+            var pLinkElement = document.createElement('a');
+            pLinkElement.href = linkElement.href;
+            pLinkElement.appendChild(pElement);
+
+            var divElement = document.createElement('div');
+            divElement.appendChild(linkElement);
+            divElement.appendChild(pLinkElement);
+
+            gallery.appendChild(divElement);
+        }
+
+        updatePagination(page);
+    }
+
+    function updatePagination(page) {
+        var pagination = document.querySelector('.pagination');
+        pagination.innerHTML = ''; // 清空分页
+
+        var totalPages = Math.ceil(images.length / perPage);
+        for (var i = 1; i <= totalPages; i++) {
+            var pageLink = document.createElement('a');
+            pageLink.href = '#';
+            pageLink.textContent = i;
+            pageLink.onclick = function() {
+                displayImages(parseInt(this.textContent));
+                return false;
+            };
+            if (i === page) {
+                pageLink.classList.add('active');
+            }
+            pagination.appendChild(pageLink);
+        }
+    }
+
+    // 初始化页面，显示第一页
+    displayImages(currentPage);
+</script>
+</body>
+</html>

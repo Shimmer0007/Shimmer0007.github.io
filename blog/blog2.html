@@ -109,13 +109,23 @@
 
     <div class="container">
         <div class="post">
-            <h2>前端水好深</h2>
-            <p>Dreamweaver怎么这么难用</p>
+            <h2>如何实现在Visual Studio Code中编译C语言？</h2>
+            <p>有点麻烦，但不算太麻烦。</p>
             <ol>
-                <li>现在在看学校的、机关单位的、BBS论坛的那些网页，技术力好高啊</li>
-                <li>JS、CSS、HTML</li>
-                <li>一个影像集还没整明白</li>
-                <li>
+                <li><strong>安装VS Code：</strong>如果你还没有安装VS Code，请使用Windows应用商店或访问https://code.visualstudio.com/下载。</li>
+				<li><strong>安装扩展：</strong>打开VS Code，进入扩展市场搜索并安装“C/C++”扩展，这是由Microsoft提供的官方扩展。</li>
+				<li><strong>下载编译器：</strong>对于C语言，常用的编译器是GCC。访问https://www.mingw-w64.org/，下载并安装适用于你的Windows版本的MinGW。（以下以Windonws安装MSYS2为例，这是一个滚动更新的版本，提供了包管理器）</li>
+				<li><strong>安装编译器：</strong>启动MSYS2 Setup，选择合适的安装路径（例如，我选择的目录为D:\MSYS64）。</li>
+				<li><strong>判断系统架构：</strong>在 Windows 搜索栏中输入 “系统信息”，然后打开 “系统信息” ，在 “系统摘要” 中，查找 “系统类型”。如果它显示 “x64-based PC”，则表示你的系统是 x86_64 架构。如果它显示 “ARM64-based PC”，则表示你的系统是 ARM64 架构。</li>
+				<li><strong>启动脚本：</strong>x86_64架构请启动mingw64.exe，ARM64架构请启动clangarm64.exe。</li>
+                <li><strong>打开终端：</strong>运行以下命令来更新MSYS2的包管理器：
+				（1）pacman -Syu    ，（2）pacman -S mingw-w64-x86_64-toolchain。
+				注意：更新过程中可能需要重启MSYS2终端，请按照提示操作。若使用32位系统，使用相应的32位命令。</li>
+				<li><strong>环境变量：</strong>bin 目录通常位于以下路径：D:\MSYS64\mingw64\bin
+				    ，以管理员身份打开命令提示符或PowerShell，输入setx PATH "%PATH%;D:\MSYS64\mingw64\bin" -m    ，回车。</li>
+				<li><strong>配置路径：</strong>打开VSC的设置（文件 > 首选项 > 设置），搜索“C_Cpp.default.compilerPath”，将其值设置为你的GCC编译器路径，例如：D:\\MSYS64\\mingw64\\bin\\gcc.exe</li>
+				
+				<li><strong>开始编译：</strong>重新启动VS Code，创建一个新的文件夹用于存放你的C语言项目。创建一个.c文件，比如main.c。</li>
 
         </div>
     </div>

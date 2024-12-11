@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shimmer的二月计划</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0066cc 3px solid;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .post {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post h2 {
+            color: #333;
+        }
+
+        .post p {
+            color: #666;
+        }
+
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #333;
+            text-align: center;
+        }
+        /* 新增的鼠标悬停效果 */
+        .post:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Shimmer</span>的第二步</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="../index.html">首页</a></li>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="post">
+            <h2>【DW2024 AI冬令营】动手定制自己的专属大模型</h2>
+            <!-- 这里插入时间戳，获取编辑本条博客的时间（年/月/日） -->
+            <span id="timestamp"></span>
+            <div id="markdown-content"></div>
+            <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+            <script>
+                var markdownText = `
+# 这是一个标题
+
+这是一段 **Markdown** 内容，包含一个 [链接](https://cdn.jsdelivr.net/npm/marked/marked.min.js)。
+
+- 列表项 1
+- 列表项 2
+
+> 这是一段引用。
+`;
+                var markdownContent = document.getElementById("markdown-content");
+                markdownContent.innerHTML = marked(markdownText);
+            </script>
+            
+        </div>
+    </div>
+    <script>
+        var currentDate = new Date();
+        var year = currentDate.getFullYear();
+        var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+        var day = currentDate.getDate().toString().padStart(2, '0');
+        var timestamp = document.getElementById("timestamp");
+        timestamp.textContent = year + "/" + month + "/" + day;
+    </script>
+
+
+    <footer>
+        <p>&copy; 2024 Shimmer的二月计划</p>
+    </footer>
+</body>
+</html>

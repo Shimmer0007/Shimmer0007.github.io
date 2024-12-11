@@ -22,9 +22,12 @@
             gap: 20px;
         }
         .section {
-            background: #fff;
+            background: #ffb20c79;
             padding: 20px;
             overflow-y: scroll;
+            height: 170px; /* 设置每个板块的高度 */
+            margin: 10px; /* 添加板块之间的间隔 */
+            border: 1px solid #ff9e0de1; /* 添加板块的边框 */
         }
         .section h2 {
             margin-top: 0;
@@ -32,9 +35,11 @@
         header {
             background: #333;
             color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
+            padding: 20px;
             border-bottom: #0066cc 3px solid;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         header a {
             color: #fff;
@@ -43,23 +48,13 @@
             font-size: 16px;
         }
         header ul {
-            padding: 0;
             list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
         }
         header li {
-            float: left;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-        header #branding {
-            float: left;
-        }
-        header #branding h1 {
-            margin: 0;
-        }
-        header nav {
-            float: right;
-            margin-top: 10px;
+            padding: 0 20px;
         }
         header .highlight, header .current a {
             color: #e8491d;
@@ -87,12 +82,31 @@
             background-color: #333;
             text-align: center;
         }
+        .branding {
+            display: flex;
+            align-items: center;
+        }
+        .branding h1 {
+            margin: 0;
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
     <header>
-        <li>心怀诗意以谋爱，手持烟火以谋生。</li>
-        <!-- ... 网站头部内容 ... -->
+        <div class="branding">
+            <h1><span class="highlight">Shimmer</span>的第一步</h1>
+        </div>
+        <div class="nav">
+            <ul>
+                <li class="current"><a href="../index.html">首页</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="contact.html">联系</a></li>
+            </ul>
+        </div>
     </header>
     <div class="container">
         <div class="section">
@@ -104,9 +118,9 @@
             <h2>柯学寄术</h2>
             <p>上次编辑时间：<span id="science-last-edit"></span></p>
             <ul>
-                <li><a href="blog1.html">从0到0.1——搭建自己个人主页的壳子</a></li>
-                <li><a href="blog2.html">有手就彳亍的VSC搭建C编译环境</a></li>
-				<li><a href="blog3.html">【DW2024 AI冬令营】动手定制自己的专属大模型</a></li>
+                <li><a href="blog2_1.html">从0到0.1——搭建自己个人主页的壳子</a></li>
+                <li><a href="blog2_2.html">有手就彳亍的VSC搭建C编译环境</a></li>
+                <li><a href="blog2_3.html">【DW2024 AI冬令营】动手定制自己的专属大模型</a></li>
             </ul>
         </div>
         <div class="section">
@@ -120,6 +134,18 @@
             <h2>不务正业</h2>
             <p>上次编辑时间：<span id="idle-last-edit"></span></p>
             <!-- 这里可以添加该板块的具体内容 -->
+             <ul>
+                <li><a href="blog4_1.html">暂时没有填什么内容</a></li>
+                <li><a href="blog4_2.html">智慧党建平台录入信息</a></li>
+                <li><a href="blog4_3.html">因子投资与量化研究复现</a></li>
+                <li><a href="blog4_4.html">市场调研选题</a></li>
+                <li><a href="blog4_5.html">三创赛道选择</a></li>
+				<li><a href="blog4_6.html">滚轮CSS测试</a></li>
+				<li><a href="blog4_7.html">滚轮CSS测试</a></li>
+				<li><a href="blog4_8.html">滚轮CSS测试</a></li>
+				<li><a href="blog4_9.html">滚轮CSS测试</a></li>
+                <li><a href="blog4_10.html">什么时候才会用到这个文件</a></li>
+            </ul>
         </div>
     </div>
     <button id="backButton">返回上一页</button>
@@ -134,20 +160,19 @@
             var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
             var day = currentDate.getDate().toString().padStart(2, '0');
             var formattedDate = year + '-' + month + '-' + day;
-    
+
             // 更新时间戳
             document.getElementById('opinion-last-edit').textContent = formattedDate;
             document.getElementById('science-last-edit').textContent = formattedDate;
             document.getElementById('world-last-edit').textContent = formattedDate;
             document.getElementById('idle-last-edit').textContent = formattedDate;
         }
-    
+
         // 页面加载时更新一次时间戳
         updateTimeStamps();
-    
+
         // 每100分钟更新一次时间戳
         setInterval(updateTimeStamps, 6000000);
     </script>
-    
 </body>
 </html>

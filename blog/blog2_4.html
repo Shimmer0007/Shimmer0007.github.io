@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shimmer的二月计划</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0066cc 3px solid;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+
+        header #branding {
+            float: left;
+        }
+
+        header #branding h1 {
+            margin: 0;
+        }
+
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .post {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .post h2 {
+            color: #333;
+        }
+
+        .post p {
+            color: #666;
+        }
+
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #333;
+            text-align: center;
+        }
+        /* 新增的鼠标悬停效果 */
+        .post:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>与<span class="highlight">Windows</span>斗智斗勇失败</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="../index.html">首页</a></li>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    
+    <div class="container">
+        <div class="post">
+            <h2>我放弃了在VSC中为Jupyter引入R内核</h2>
+            <p>前情提要：来自《数据科学导论》课程的作业Hands-On Problem 6.1：<span style="color:red;">This problem should be solved using R codes.</span> 试图逃课Rstudio的苯人遂试图通过VSC解决作业。</p>
+            <h3>VS Code搭建R语言运行环境</h3>
+            <p>安装R：建议官网[R: The R Project for Statistical Computing](https://www.r-project.org/)下载，安装流程除了哪里亮了点哪里外记得勾选添加环境变量。</p>
+            <p>安装扩展：`R` & `R Debugger`，有的教程会推荐`R LSP Client`，这个现已被整合入前者内，无需操心；</p>
+            <p>安装Languageserver：在.r文件中输入`install.packages("languageserver")`，选择合适的镜像（个人偏好BFSU镜像）后安装；</p>
+            <p>安装Radian：Radian可以理解为R程序的ipython，是R的控制台（多行编辑、语法高亮）。在Shell内`pip3 install -U radian`，安装完成后输入`radian`确认成功，通过`where radian`（Mac疑似要用`which radian`）找到安装位置，将所在目录添加至系统环境变量。[注：请确保已安装Python V3.6及以上版本。]</p>
+            <p>配置Radian：左下角进入设置，输入`r.rterm.mac`，在框内输入准备好的`Radian`路径；之后设置`Bracketed Paste`，输入`r.br`后，启用`Bracketed Paste`。</p>
+            <p>配置图形输出包：在.r文件中输入`install.packages("httpgd")`并运行，完成后回到设置界面输入`r.plot.useHttpgd`，启用`httpgd`。</p>
+            <p>本次作业所需的`ggplot2`依葫芦画瓢装包即可~</p>
+            <p>特别地，对于M1 Mac用户，请选择ARM版本的R。配置`Radian`在输入`r.rterm`后，需将原来的 `--no-save`和`–no-restore`删掉。</p>
+            <p>另：鉴于R本身古老的特性，譬如ggplot2和r标准图形是两套底层，VSC难免与RStudio体验不完全一致，debug时尤其警惕误导性的`print`语法（大雾）。</p>
+            <h3>利用Jupyter Notebook进行R编程</h3>
+            <p><span style="color:red;">该过程耗时过长，且最终失败，得出结论为R的包管理是确确实实的依托。</span></p>
+            <p>Jupyter的好处不再赘述，直接`pip install jupyter`！</p>
+            <p>win+R进入cmd，输入`r`，输入以下命令：</p>
+            <p>安装`IRkernel`包：`install.packages("IRkernel")`;</p>
+            <p>安装R内核：`IRkernel::installspec()`；<span style="color:red;"> # 如果这一步error，收手吧环境，外面全是矢山pachage</span>；</p>
+            <p>最后一步：基本上VScode都能自动捕捉R的安装路径。在VSC中打开`.ipynb`，按下快捷键`Ctrl+Shift+P`，输入`Jupyter: Create New Blank Notebook`，若显示出R语言内核则喜大普奔，可以使用Jupyter Notebook进行R语言编程了。</p>
+            <p>上述步骤未见成效，请在善待自己系统环境的考量上考虑下述操作：</p>
+            <p>在设置中，搜索`Rpath`，将R的安装路径填入，可以用在Shell内用`where r`找到；</p>
+            <p>在设置中，搜索`Rterm`，将`radian`的安装路径填入;</p>
+            <p>删除`Rterm:Options`中的`--no-save`，并将`--no-restore`改为`--no-site-file`。</p>
+            <p>以上。</p>
+
+        </div>
+    </div>
+    <script>
+        var currentDate = new Date();
+        var year = currentDate.getFullYear();
+        var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+        var day = currentDate.getDate().toString().padStart(2, '0');
+        var timestamp = document.getElementById("timestamp");
+        timestamp.textContent = year + "/" + month + "/" + day;
+    </script>
+
+
+    <footer>
+        <p>&copy; 2024 Shimmer的二月计划</p>
+    </footer>
+</body>
+</html>

@@ -111,41 +111,29 @@
     <div class="container">
         <div class="section">
             <h2>我有意见</h2>
-            <p>上次编辑时间：<span id="opinion-last-edit"></span></p>
             <!-- 这里可以添加该板块的具体内容 -->
         </div>
         <div class="section">
             <h2>柯学寄术</h2>
-            <p>上次编辑时间：<span id="science-last-edit"></span></p>
             <ul>
-                <li><a href="blog2_1.html">从0到0.1——搭建自己个人主页的壳子</a></li>
-                <li><a href="blog2_2.html">有手就彳亍的VSC搭建C编译环境</a></li>
-                <li><a href="blog2_3.html">【DW2024 AI冬令营】动手定制自己的专属大模型</a></li>
-		<li><a href="blog2_4.html">我放弃了在VSC中为Jupyter引入R内核</a></li>
+                <li><a href="blog2_1.html">从0到0.1——搭建自己个人主页的壳子 <span style="float: right;">2024-08-08</span></a></li>
+                <li><a href="blog2_2.html">有手就彳亍的VSC搭建C编译环境 <span style="float: right;">2024-09-23</span></a></li>
+                <li><a href="blog2_3.html">【DW2024 AI冬令营】动手定制自己的专属大模型<span style="float: right;">2024-12-08</span></a></li>
+                <li><a href="blog2_4.html">我放弃了在VSC里为Jupyter引入R内核<span style="float: right;">2024-12-13</span></a></li>
             </ul>
         </div>
         <div class="section">
             <h2>看看世界</h2>
-            <p>上次编辑时间：<span id="world-last-edit"></span></p>
             <ul>
                 <li><a href="blog_camera.html">Shimmer-微光影像集</a></li>
             </ul>
         </div>
         <div class="section">
             <h2>不务正业</h2>
-            <p>上次编辑时间：<span id="idle-last-edit"></span></p>
             <!-- 这里可以添加该板块的具体内容 -->
              <ul>
                 <li><a href="blog4_1.html">暂时没有填什么内容</a></li>
                 <li><a href="blog4_2.html">智慧党建平台录入信息</a></li>
-                <li><a href="blog4_3.html">因子投资与量化研究复现</a></li>
-                <li><a href="blog4_4.html">市场调研选题</a></li>
-                <li><a href="blog4_5.html">三创赛道选择</a></li>
-				<li><a href="blog4_6.html">滚轮CSS测试</a></li>
-				<li><a href="blog4_7.html">滚轮CSS测试</a></li>
-				<li><a href="blog4_8.html">滚轮CSS测试</a></li>
-				<li><a href="blog4_9.html">滚轮CSS测试</a></li>
-                <li><a href="blog4_10.html">什么时候才会用到这个文件</a></li>
             </ul>
         </div>
     </div>
@@ -153,27 +141,6 @@
     <footer>
         <!-- ... 网站底部内容 ... -->
     </footer>
-    <script>
-        function updateTimeStamps() {
-            // 获取当前日期并将其格式化为年-月-日
-            var currentDate = new Date();
-            var year = currentDate.getFullYear();
-            var month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-            var day = currentDate.getDate().toString().padStart(2, '0');
-            var formattedDate = year + '-' + month + '-' + day;
 
-            // 更新时间戳
-            document.getElementById('opinion-last-edit').textContent = formattedDate;
-            document.getElementById('science-last-edit').textContent = formattedDate;
-            document.getElementById('world-last-edit').textContent = formattedDate;
-            document.getElementById('idle-last-edit').textContent = formattedDate;
-        }
-
-        // 页面加载时更新一次时间戳
-        updateTimeStamps();
-
-        // 每100分钟更新一次时间戳
-        setInterval(updateTimeStamps, 6000000);
-    </script>
 </body>
 </html>

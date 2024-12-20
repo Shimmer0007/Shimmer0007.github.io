@@ -1,0 +1,107 @@
+<p><strong>&nbsp;</strong></p>
+<table width="581">
+<tbody>
+<tr>
+<td width="581">
+<p>一、实验目的</p>
+<p>1. 理解和掌握产生式知识表示方法。</p>
+<p>2. 能够利用产生式知识表示方法进行正向推理和反向推理。</p>
+<p>3. 能够用Python语言建立产生式系统的规则库。</p>
+<p>&nbsp;</p>
+<p>二、实验背景</p>
+<p>建立一个动物识别系统的规则库，用以识别虎、豹、斑马、长颈鹿、企鹅、鸵鸟、信天翁等7种动物。</p>
+<p>为了识别这些动物，可以根据动物识别的特征，建立包含下述规则的规则库(总共15条)：</p>
+<p>R1：if动物有毛发then动物是哺乳动物。</p>
+<p>R2：if动物有奶then动物是哺乳动物。</p>
+<p>R3：if动物有羽毛then动物是鸟。</p>
+<p>R4：if动物会飞and会生蛋then动物是鸟。</p>
+<p>R5：if动物吃肉then动物是食肉动物。</p>
+<p>R6：if动物有犀利牙齿and有爪and眼向前方then动物是食肉动物。</p>
+<p>R7：if动物是哺乳动物and有蹄then动物是有蹄类动物。</p>
+<p>R8：if动物是哺乳动物and反刍then动物是有蹄类动物。</p>
+<p>R9：if动物是哺乳动物and是食肉动物and有黄褐色and有暗斑点then动物是豹。</p>
+<p>R10：if动物是哺乳动物and是食肉动物and有黄褐色and有黑色条纹then动物是虎。</p>
+<p>R11：if动物是有蹄类动物and有长脖子and有长腿and有暗斑点then动物是长颈鹿。</p>
+<p>R12：if动物是有蹄类动物and有黑色条纹then动物是斑马。</p>
+<p>R13：if动物是鸟and不会飞and有长脖子and有长腿and有黑白二色then动物是鸵鸟。</p>
+<p>R14：if动物是鸟and不会飞and会游泳and有黑白二色then动物是企鹅。</p>
+<p>R15：if动物是鸟and善飞then动物是信天翁。</p>
+<p><strong>如果动物有暗斑点、有长脖子、有长腿、有奶、有蹄，请推理出是什么动物。</strong></p>
+<p>&nbsp;</p>
+<p>三、实验代码</p>
+<p># 规则库</p>
+<p>rules = [</p>
+<p>&nbsp; &nbsp; ("有毛发", "是哺乳动物"),</p>
+<p>&nbsp; &nbsp; ("有奶", "是哺乳动物"),</p>
+<p>&nbsp; &nbsp; ("有羽毛", "是鸟"),</p>
+<p>&nbsp; &nbsp; ("会飞", "会生蛋", "是鸟"),</p>
+<p>&nbsp; &nbsp; ("吃肉", "是食肉动物"),</p>
+<p>&nbsp; &nbsp; ("有犀利牙齿", "有爪", "眼向前方", "是食肉动物"),</p>
+<p>&nbsp; &nbsp; ("是哺乳动物", "有蹄", "是有蹄类动物"),</p>
+<p>&nbsp; &nbsp; ("是哺乳动物", "反刍", "是有蹄类动物"),</p>
+<p>&nbsp; &nbsp; ("是哺乳动物", "是食肉动物", "有黄褐色", "有暗斑点", "是豹"),</p>
+<p>&nbsp; &nbsp; ("是哺乳动物", "是食肉动物", "有黄褐色", "有黑色条纹", "是虎"),</p>
+<p>&nbsp; &nbsp; ("是有蹄类动物", "有长脖子", "有长腿", "有暗斑点", "是长颈鹿"),</p>
+<p>&nbsp; &nbsp; ("是有蹄类动物", "有黑色条纹", "是斑马"),</p>
+<p>&nbsp; &nbsp; ("是鸟", "不会飞", "有长脖子", "有长腿", "有黑白二色", "是鸵鸟"),</p>
+<p>&nbsp; &nbsp; ("是鸟", "不会飞", "会游泳", "有黑白二色", "是企鹅"),</p>
+<p>&nbsp; &nbsp; ("是鸟", "善飞", "是信天翁")</p>
+<p>]</p>
+<p>&nbsp;</p>
+<p># 事实库</p>
+<p>facts = set()</p>
+<p>&nbsp;</p>
+<p># 动物特征输入</p>
+<p>def input_features():</p>
+<p>&nbsp; &nbsp; features = []</p>
+<p>&nbsp; &nbsp; feature_input = input("请输入动物特征（空格分隔，输入'end'结束）: ")</p>
+<p>&nbsp; &nbsp; while feature_input.lower() != 'end':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; features.append(feature_input)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; feature_input = input("请继续输入动物特征（空格分隔，输入'end'结束）: ")</p>
+<p>&nbsp; &nbsp; return features</p>
+<p>&nbsp;</p>
+<p># 将输入的特征添加到事实库</p>
+<p>def add_features_to_facts(features):</p>
+<p>&nbsp; &nbsp; for feature in features:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; facts.add(feature)</p>
+<p>&nbsp;</p>
+<p># 匹配规则</p>
+<p>def match_rule(rule):</p>
+<p>&nbsp; &nbsp; return set(rule[:len(rule)-1]).issubset(facts)</p>
+<p>&nbsp;</p>
+<p># 应用规则</p>
+<p>def apply_rule(rule):</p>
+<p>&nbsp; &nbsp; facts.add(rule[-1])</p>
+<p>&nbsp;</p>
+<p># 识别动物</p>
+<p>def identify_animal():</p>
+<p>&nbsp; &nbsp; while True:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; for rule in rules:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if match_rule(rule):</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; apply_rule(rule)</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if rule[-1] in ["是豹", "是虎", "是长颈鹿", "是斑马", "是鸵鸟", "是企鹅", "是信天翁"]:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return rule[-1].split('是')[1]</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; break</p>
+<p>&nbsp; &nbsp; return "未知动物"</p>
+<p><br /> </p>
+<p># 主程序</p>
+<p>def main():</p>
+<p>&nbsp; &nbsp; features = input_features()</p>
+<p>&nbsp; &nbsp; add_features_to_facts(features)</p>
+<p>&nbsp; &nbsp; animal = identify_animal()</p>
+<p>&nbsp; &nbsp; print(f"识别的动物是：{animal}")</p>
+<p>&nbsp;</p>
+<p>if __name__ == "__main__":</p>
+<p>&nbsp; &nbsp; main()</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>四、<br /> 实验数据记录（运行结果截图）</p>
+<p>&nbsp;</p>
+<p>五、结果分析</p>
+<p>当所有输入特征都存在于事实库中时，程序会识别出动物的种类。</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><u>&nbsp;</u></p>
+<p><u>&nbsp;</u></p>

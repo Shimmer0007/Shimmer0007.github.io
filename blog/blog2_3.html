@@ -114,28 +114,30 @@
 
     <div class="container">
         <div class="post">
-            <h2>【DW2024 AI冬令营】动手定制自己的专属大模型</h2>
-            <!-- 这里插入时间戳，获取编辑本条博客的时间（年/月/日） -->
-            <span id="timestamp"></span>
-            <div id="markdown-content"></div>
-            <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-            <script>
-                var markdownText = `
-# 这是一个标题
-
-这是一段 **Markdown** 内容，包含一个 [链接](https://cdn.jsdelivr.net/npm/marked/marked.min.js)。
-
-- 列表项 1
-- 列表项 2
-
-> 这是一段引用。
-`;
-                var markdownContent = document.getElementById("markdown-content");
-                markdownContent.innerHTML = marked(markdownText);
-            </script>
+            <h1>【DW2024 AI冬令营II】动手学AI辅助编程</h2>
+            <p>任何人，都有机会通过<span style="color:red;">与AI协作编写出属于自己的定制化软件</span>，更高效地解决自己的实际问题~</p>
+            <p>作为使用Marscode AI扩展两月半的练习生，以及这一套没有一行html是自己手敲的博客框架，看到教程里的这句话深有同感。<span style="color:rgb(96, 44, 255);">AI辅助编程</span>是指利用人工智能技术（通常是通用大语言模型或编程垂类的大语言模型）来辅助、优化编程，提高编程效率和质量。本期冬令营的最终目标是开发出自己的Demo作品——于苯人而言，大概就是充分发挥想象力，尽可能完善博客的界面。</p>
+            <h2>Task1：动手体验AI辅助编程：番茄钟</h2>
+            <p>本任务要求创建一个简单的番茄钟应用。番茄钟概念不再赘述，将下述prompt发送：</p>
+            <!-- 此处插入米色高亮块，用于向内填充文本 -->
+            <div class="highlight">
+                <p>请你基于html、tailwind css和javascript，帮我设计一个“番茄时钟”。要求：</p>
+                <ul>
+                    <li>UI简洁美观大方；</li>
+                    <li>具有呼吸感；</li>
+                    <li>点击开始计时、点击暂停计时和重置计时的功能能够完美实现；</li>
+                    <li>在现有语句基础上添加一些动画效果，如呼吸效果；同时实现对自定义时间长度和正向计时的支持。</li>
+                </ul>
+            </div>
+            <p>生成内容请访问链接：</p>
+            <a href="https://shimmer0007.github.io/step/tomatodo.html">https://shimmer0007.github.io/step/tomatodo.html</a>
+            <p>思考：prompt中首先提到HTML、Tailwind CSS和JavaScript是因为，这些是构建现代网页和应用程序的基石。特别要求UI简洁美观大方，指示AI在设计界面时避免不必要的复杂元素，专注于核心功能，以提供清晰的用户体验。呼吸感则是一个更抽象的概念，通常指设计应该具有活力和动感，而不是静态和死板，可能鼓励AI使用一些微动效或平滑的过渡效果，使得界面看起来更加生动。</p>
             
+            <h2>Task2：？？？</h2>
+
         </div>
     </div>
+ 
     <script>
         var currentDate = new Date();
         var year = currentDate.getFullYear();

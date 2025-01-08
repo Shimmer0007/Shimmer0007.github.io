@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年贺卡</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .symbol {
+            background-image: linear-gradient(135deg, #ff4d4d, #ffb700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #ff4d4d; /* 降级方案 */
+        }
+
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4d4d, #ffb700);
+            transform-origin: center center;
+            animation: explode 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(1) rotate(0deg); opacity: 1; }
+            50% { opacity: 1; }
+            100% { transform: scale(40) rotate(45deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-red-200 to-yellow-200">
+    <div class="relative flex flex-col items-center justify-center rounded-2xl backdrop-blur-sm p-8" style="box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);">
+        <div class="text-6xl symbol hover:scale-110 cursor-pointer" onclick="fireworks()">🎉</div>
+        <p class="mt-2">点击爆竹送祝福</p>
+        <div id="card" class="hidden rounded-2xl backdrop-blur-sm p-8 text-center">
+            <h1 class="symbol text-4xl font-bold">金蛇献瑞</h1>
+            <p class="symbol text-2xl mt-4">亲爱的Amy</p>
+            <p class="symbol text-lg mt-2">祝你新的一年更加热爱自己</p>
+            <p class="symbol text-lg mt-2">愿你在蛇年里灵动优雅，前程似锦！</p>
+        </div>
+    </div>
+
+    <script>
+        function fireworks() {
+            const fireworkContainer = document.body;
+            const numberOfParticles = 100; // 增加粒子数量
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                let firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = `${Math.random() * 100}%`;
+                firework.style.top = `${Math.random() * 100}%`;
+                firework.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+                fireworkContainer.appendChild(firework);
+
+                // 设置不同的动画时长和延迟
+                firework.style.animationDuration = `${Math.random() * 1.5 + 0.5}s`;
+                firework.style.animationDelay = `${Math.random() * 0.5}s`;
+
+                setTimeout(() => firework.remove(), 2000); // 确保粒子在2秒后消失
+            }
+
+            setTimeout(() => {
+                document.getElementById('card').classList.remove('hidden');
+            }, 1200);
+        }
+    </script>
+</body>
+</html>

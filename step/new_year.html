@@ -185,9 +185,20 @@
         setInterval(createFirework, 1000);
         animate();
 
-        function launchFirework() {
+        function launchFirework(event) {
+            console.log("爆竹被点击了！"); // 添加调试信息
             createFirework();
+            // 使用事件对象的客户端坐标来创建火花
+            createSparks(event.clientX, event.clientY);
         }
+
+        // 更新事件监听器以传递事件对象
+        document.querySelector('.symbol').addEventListener('click', function(event) {
+            launchFirework(event);
+            document.getElementById('card').style.display = 'block'; // 显示贺卡
+        });
+
+
 
         function createSparks(x, y){
             for(let i=0;i<100;i++){
@@ -202,6 +213,8 @@
                 }, 1000);
             }
         }
+
+        
     </script>
 </body>
 </html>

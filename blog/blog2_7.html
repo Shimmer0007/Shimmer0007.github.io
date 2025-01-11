@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Python学习笔记</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            'python-blue': 'rgb(64, 104, 168)',
+                            'python-yellow': 'rgb(255, 206, 58)',
+                        },
+                    },
+                },
+            }
+        </script>
+        <style>
+            /* 自定义样式 */
+            .custom-shadow {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+        </style>
+    </head>
+    
+<body class="bg-gradient-to-r from-purple-50 to-indigo-100">
+
+<!-- 导航菜单 -->
+<div class="fixed top-0 right-0 p-4 z-50">
+    <div class="bg-white rounded-lg shadow-md p-4">
+        <div class="flex flex-col items-end">
+            <ul class="flex flex-col space-y-2">
+                <li class="current">
+                    <div class="rounded-lg bg-white p-2">
+                        <a href="../index.html" class="text-gray-800 hover:text-gray-600">首页</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="rounded-lg bg-white p-2">
+                        <a href="about.html" class="text-gray-800 hover:text-gray-600">关于</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="rounded-lg bg-white p-2">
+                        <a href="contact.html" class="text-gray-800 hover:text-gray-600">联系</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- 主内容区域 -->
+<div class="container mx-auto p-8">
+    <div class="rounded-lg custom-shadow bg-white p-8">
+        <h1 class="text-5xl font-bold text-center mb-10">
+            <span class="text-python-blue">Py</span><span class="text-python-yellow">thon</span>学习笔记
+        </h1>
+        <div class="prose prose-lg mx-auto">
+            <!-- 在这里编写你的笔记内容 -->
+            <p class="text-gray-800">课程来自DW2025组队学习，详见<a href="https://www.datawhale.cn/activity/125">聪明办法学Python [202501]</a>。</p>
+            
+            <!-- 添加一些分隔符来增加呼吸感 -->
+            <div class="h-1 w-full bg-gradient-to-r from-purple-300 to-indigo-400 rounded-full my-8"></div>
+            <!-- 更多笔记内容 -->
+            <p class="text-gray-800">继续编写笔记...</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- JavaScript脚本（如果需要） -->
+<script>
+    // JavaScript代码
+</script>
+
+</body>
+</html>

@@ -4,155 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>欢迎来到微光计划</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        li a b 
-        {
-        background: linear-gradient(to right, #36acfc, #1bc163);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        li a b {
+            background: linear-gradient(to right, #36acfc, #1bc163);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 20px;
-        }
         .section {
-            background: #ffb20c79;
-            padding: 20px;
-            overflow-y: scroll;
-            height: 200px; /* 设置每个板块的高度 */
-            margin: 10px; /* 添加板块之间的间隔 */
-            border: 1px solid #ff9e0de1; /* 添加板块的边框 */
+            min-width: 360px; /* 设置最小宽度为360px */
+            overflow-y: auto; /* 启用垂直滚动 */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
         }
-        .section h2 {
-            margin-top: 0;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 20px;
-            border-bottom: #0066cc 3px solid;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-        header ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-        header li {
-            padding: 0 20px;
-        }
-        header .highlight, header .current a {
-            color: #e8491d;
-            font-weight: bold;
-        }
-        header a:hover {
-            color: #ffffff;
-            font-weight: bold;
-        }
-        .post {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .post h2 {
-            color: #333;
-        }
-        .post p {
-            color: #666;
-        }
-        footer {
-            padding: 20px;
-            margin-top: 20px;
-            color: #fff;
-            background-color: #333;
-            text-align: center;
-        }
-        .branding {
-            display: flex;
-            align-items: center;
-        }
-        .branding h1 {
-            margin: 0;
-        }
-        .nav {
-            display: flex;
-            align-items: center;
+
+        .section::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, and Opera */
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="branding">
-            <h1><span class="highlight">Shimmer</span>的第一步</h1>
-        </div>
-        <div class="nav">
-            <ul>
-                <li class="current"><a href="../index.html">首页</a></li>
-                <li><a href="about.html">关于</a></li>
-                <li><a href="contact.html">联系</a></li>
-            </ul>
+<body class="bg-gray-100">
+    <header class="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="branding">
+                <h1 class="text-3xl font-bold"><span class="text-orange-500">Shimmer</span>的第一步</h1>
+            </div>
+            <nav class="nav">
+                <ul class="flex space-x-4">
+                    <li class="current"><a href="../index.html" class="hover:text-orange-500">首页</a></li>
+                    <li><a href="about.html" class="hover:text-orange-500">关于</a></li>
+                    <li><a href="contact.html" class="hover:text-orange-500">联系</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    <div class="container">
-        <div class="section">
-            <h2>我有意见</h2>
-            <li><a href="blog1_1.html">公众号推送能不能写点正常的新闻标题 <span style="float: right;">2024-12-14</span></a></li>
-            <!-- 这里可以添加该板块的具体内容 -->
-        </div>
-        <div class="section">
-            <h2>柯学寄术</h2>
+    <div class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="section bg-gradient-to-r from-purple-200 to-blue-200 p-4 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-2">我有意见</h2>
             <ul>
-                <li><a href="blog2_1.html">从0到0.1——搭建自己个人主页的壳子 <span style="float: right;">2024-08-08</span></a></li>
-                <li><a href="blog2_2.html">有手就彳亍的VSC搭建C编译环境 <span style="float: right;">2024-09-23</span></a></li>
-                <li><a href="blog2_3.html">【DW2024 AI冬令营II】动手学AI辅助编程<span style="float: right;">2024-12-23</span></a></li>
-                <li><a href="blog2_4.html">我放弃了在VSC里为Jupyter引入R内核<span style="float: right;">2024-12-13</span></a></li>
-                <li><a href="blog2_5.html">12.18实验：八数码问题<span style="float: right;">2024-12-18</span></a></li>
-                <li><a href="blog2_6.html">12.20实验：产生式系统动物识别<span style="float: right;">2024-12-20</span></a></li>
-                <li><a href="blog2_7.html">【DW2025】 P2S<span style="float: right;">2025-01-11</span></a></li>
+                <li><a href="blog1_1.html" class="text-blue-500 hover:text-blue-700">公众号推送能不能写点正常的新闻标题 <span class="text-gray-500 float-right">2024-12-14</span></a></li>
+                <!-- 这里可以添加该板块的具体内容 -->
             </ul>
         </div>
-        <div class="section">
-            <h2>看看世界</h2>
+        <div class="section bg-gradient-to-r from-blue-200 to-green-200 p-4 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-2">柯学寄术</h2>
             <ul>
-                <li><a href="blog3_1.html"><b>Shimmer的2024</b> <span style="float: right;">2025-01-06</span></a></li>
-                <li><a href="blog_camera.html">Shimmer-微光影像集</a></li>
+                <li><a href="blog2_1.html" class="text-blue-500 hover:text-blue-700">从0到0.1——搭建自己个人主页的壳子 <span class="text-gray-500 float-right">2024-08-08</span></a></li>
+                <li><a href="blog2_2.html" class="text-blue-500 hover:text-blue-700">有手就彳亍的VSC搭建C编译环境 <span class="text-gray-500 float-right">2024-09-23</span></a></li>
+                <li><a href="blog2_3.html" class="text-blue-500 hover:text-blue-700">【DW2024 AI冬令营II】动手学AI辅助编程<span class="text-gray-500 float-right">2024-12-23</span></a></li>
+                <li><a href="blog2_4.html" class="text-blue-500 hover:text-blue-700">我放弃了在VSC里为Jupyter引入R内核<span class="text-gray-500 float-right">2024-12-13</span></a></li>
+                <li><a href="blog2_5.html" class="text-blue-500 hover:text-blue-700">12.18实验：八数码问题<span class="text-gray-500 float-right">2024-12-18</span></a></li>
+                <li><a href="blog2_6.html" class="text-blue-500 hover:text-blue-700">12.20实验：产生式系统动物识别<span class="text-gray-500 float-right">2024-12-20</span></a></li>
+                <li><a href="blog2_7.html" class="text-blue-500 hover:text-blue-700">【DW2025】 P2S<span class="text-gray-500 float-right">2025-01-11</span></a></li>
             </ul>
         </div>
-        <div class="section">
-            <h2>不务正业</h2>
-            <!-- 这里可以添加该板块的具体内容 -->
-             <ul>
-                <li><a href="blog4_1.html">【微光读书】适应性市场</a></li>
-                <li><a href="blog4_2.html">智慧党建平台录入信息</a></li>
+        <div class="section bg-gradient-to-r from-red-200 to-yellow-200 p-4 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-2">看看世界</h2>
+            <ul>
+                <li><a href="blog3_1.html" class="text-blue-500 hover:text-blue-700"><b>Shimmer的2024</b> <span class="text-gray-500 float-right">2025-01-06</span></a></li>
+                <li><a href="blog_camera.html" class="text-blue-500 hover:text-blue-700">Shimmer-微光影像集</a></li>
+            </ul>
+        </div>
+        <div class="section bg-gradient-to-r from-yellow-200 to-pink-200 p-4 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-2">不务正业</h2>
+            <ul>
+                <li><a href="blog4_1.html" class="text-blue-500 hover:text-blue-700">【微光读书】适应性市场</a></li>
+                <li><a href="blog4_2.html" class="text-blue-500 hover:text-blue-700">智慧党建平台录入信息</a></li>
             </ul>
         </div>
     </div>
-    <button id="backButton">返回上一页</button>
-    <footer>
+    <button id="backButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">返回上一页</button>
+    <footer class="bg-gray-800 text-white p-4 text-center">
         <!-- ... 网站底部内容 ... -->
     </footer>
-
 </body>
 </html>

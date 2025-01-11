@@ -13,7 +13,7 @@
         }
 
         .section {
-            min-width: 380px; /* 设置最小宽度为380px */
+            min-width: 360px; /* 设置最小宽度为360px */
             height: 230px; /* 设置固定高度为230px，可根据需要调整 */
             overflow-y: auto; /* 启用垂直滚动 */
             scrollbar-width: none; /* Firefox */
@@ -26,11 +26,17 @@
 
         /* 调整网格布局，确保一行最多两个格子并列，并增加格子之间的间隔 */
         .container {
-            min-height: 1vh; /* 确保内容区域填满整个页面的高度 */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); /* 自动调整列宽，最小宽度为360px */
-            gap: 20px; /* 调整格子之间的间距为16px，可根据需要调整 */
+            grid-template-columns: 1fr; /* 默认一行一个板块 */
+            gap: 20px; /* 调整格子之间的间距为20px，可根据需要调整 */
         }
+
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr); /* 当屏幕宽度大于768px时，一行两个板块 */
+            }
+        }
+        
 
         /* 使用Flexbox布局确保footer始终位于页面底部 */
         body {

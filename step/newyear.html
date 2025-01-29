@@ -1,0 +1,89 @@
+        <p class="symbol text-lg mt-2">请查收来自李昔墨的新年祝福</p>
+        <div id="card" class="rounded-2xl backdrop-blur-sm p-10 text-center">
+            <h1 class="symbol text-4xl font-bold">新岁启程时</h1>
+            <p class="symbol text-lg mt-2 font-bold">愿您乙巳承鸿运，灵蛇衔福润杏坛</p>
+            <p class="symbol text-lg mt-2 font-bold">春风化雨育桃李，学术深耕启慧灯</p>
+            <p class="symbol text-lg mt-2 font-bold">科研攻关传捷报，著书立论笔如神</p>
+            <p class="symbol text-lg mt-2 font-bold">三尺讲台传薪火，四海英才沐师恩</p>
+            <p class="symbol text-lg mt-2 font-bold">案牍繁时身愈健，诗书伴月气自沉</p>
+            
+            <p class="symbol text-lg mt-2"></p>
+            <p class="symbol text-lg mt-2"></p>
+            <p class="symbol text-lg mt-2 font-bold">社稷弦歌添异彩，金蛇盘福满园春</p>
+            
+            <p class="symbol text-lg mt-2 font-bold">Shimmer祝老师的乙巳蛇年</p>
+            <p class="symbol text-2xl mt-2 font-bold">灵动优雅，前程似锦！</p>
+        </div>
+    </div>
+
+    <script>
+        function launchFireworks() {
+            const fireworkContainer = document.body;
+            const numberOfParticles = 50; // 增加粒子数量
+            const gravity = 0.98;
+            const pageHeight = window.innerHeight;
+            const explodeHeight = pageHeight * 3 / 4; // 增加爆炸高度
+
+            // 添加容器按压动画
+            document.querySelector('.card-container').style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                document.querySelector('.card-container').style.transform = 'scale(1)';
+            }, 200);
+
+            for (let i = 0; i < numberOfParticles; i++) {
+                let firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = `${Math.random() * 100}%`;
+                firework.style.bottom = '0';
+                fireworkContainer.appendChild(firework);
+
+                firework.animate([
+                    { transform: 'translateY(0)' },
+                    { transform: `translateY(-${explodeHeight}px)`, opacity: 0 }
+                ], {
+                    duration: (Math.random() * 2000) + 2000, // 增加上升动画持续时间
+                    easing: 'ease-out',
+                    fill: 'forwards'
+                });
+
+                setTimeout(() => {
+                    for (let j = 0; j < 50; j++) {
+                        let particle = document.createElement('div');
+                        particle.classList.add('spark');
+                        particle.style.left = `${firework.offsetLeft}px`;
+                        particle.style.bottom = `${explodeHeight}px`;
+                        particle.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                        fireworkContainer.appendChild(particle);
+
+                        const angle = Math.random() * Math.PI * 2;
+                        const speed = Math.random() * 10 + 5; // 增加粒子速度
+                        particle.animate([
+                            { transform: `translateY(0) translateX(0) scale(1)`, opacity: 1 },
+                            { transform: `translateY(${Math.sin(angle) * 400}px) translateX(${Math.cos(angle) * 400}px) scale(0)`, opacity: 0 } // 增加粒子飞行距离
+                        ], {
+                            duration: (Math.random() * 2000) + 2000, // 增加粒子动画持续时间
+                            easing: 'ease-out',
+                            fill: 'forwards'
+                        });
+
+                        let gravityEffect = setInterval(() => {
+                            particle.style.bottom = `${parseFloat(particle.style.bottom) + 5}px`;
+                        }, 20);
+
+                        setTimeout(() => {
+                            clearInterval(gravityEffect);
+                            particle.remove();
+                        }, 4000); // 增加粒子消散时间
+                    }
+                    firework.remove();
+                }, (Math.random() * 2000) + 2000); // 增加爆炸延迟时间
+            }
+
+            // 显示贺卡带动画
+            setTimeout(() => {
+                document.getElementById('card').classList.add('show');
+            }, 800);
+        }
+    </script>
+</body>
+</html>

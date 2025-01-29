@@ -1,3 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年贺卡</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .symbol {
+            background-image: linear-gradient(135deg, #ff4d4d, #ffb700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #ff4d4d;
+        }
+
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4d4d, #ffb700);
+            transform-origin: center center;
+        }
+
+        .spark {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff4d4d, #ffb700);
+            transform-origin: center center;
+        }
+
+        @keyframes rise {
+            to {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* 新增过渡动画 */
+        #card {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        #card.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .card-container {
+            transition: transform 0.3s ease;
+        }
+        
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-red-200 to-yellow-200">
+    <div class="card-container relative flex flex-col items-center justify-center rounded-2xl backdrop-blur-sm p-8" style="box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);">
+        <div class="text-6xl cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95" onclick="launchFireworks()">
+            <span class="inline-block animate-float">✉️</span>
+        </div>
         <p class="symbol text-lg mt-2">请查收来自李昔墨的新年祝福</p>
         <div id="card" class="rounded-2xl backdrop-blur-sm p-10 text-center">
             <h1 class="symbol text-4xl font-bold">新岁启程时</h1>
